@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Douglas Riguini · Analista de dados e desenvolvedor Power BI</title>
+<meta name="description" content="Dashboards em Power BI para finanças, comercial, logística, RH, marketing, indústria e saúde. Veja os projetos interativos de Douglas Riguini.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://riguini.github.io/">
+<meta property="og:title" content="Douglas Riguini · Analista de dados e desenvolvedor Power BI">
+<meta property="og:description" content="Dashboards interativos em Power BI para finanças, logística, marketing, RH, indústria e saúde.">
+<meta property="og:image" content="https://riguini.github.io/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg0:#0A0A0A; --bg1:#1D1F22; --card:#141619; --card2:#191C20;
+  --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
+  --tx:#F2F2F2; --mu:#A9AFB6; --mu2:#7D848C;
+  --cu:#D9955F; --cu2:#E8AE7E; --cu-d:#A8642F; --ink:#1B1D1F;
+  --paper:#F7F5F2; --paper-tx:#22252A; --paper-mu:#5B6168;
+  --r:14px; --wrap:1160px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg0);color:var(--tx);font-family:'DM Sans',system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.band{padding:96px 0}
+.band.alt{background:var(--bg1)}
+.h2{font-size:clamp(26px,3vw,34px);font-weight:700;line-height:1.2;margin:0 0 12px;display:flex;align-items:center;gap:14px}
+.h2::before{content:"";width:4px;height:1.1em;background:var(--cu);border-radius:2px}
+.lead{color:var(--mu);max-width:640px;margin:0 0 48px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 20px;border-radius:10px;font:600 15px/1 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:transform .2s,background .2s,border-color .2s,color .2s}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-cu{background:var(--cu);color:var(--ink)}
+.btn-cu:hover{background:var(--cu2);transform:translateY(-1px)}
+.btn-ln{border-color:var(--line2);color:var(--tx);background:transparent}
+.btn-ln:hover{border-color:var(--cu);color:var(--cu)}
+.btn[disabled]{background:#2A2D31;color:#7D848C;cursor:not-allowed;transform:none}
+:focus-visible{outline:2px solid var(--cu);outline-offset:3px;border-radius:6px}
+
+/* header */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:50;height:68px;display:flex;align-items:center;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.hdr.solid{background:rgba(10,10,10,.86);backdrop-filter:blur(12px);border-color:var(--line)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;width:100%}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;letter-spacing:.01em}
+.brand-mk{width:34px;height:34px;border-radius:9px;background:var(--cu);color:var(--ink);display:grid;place-items:center;font-size:14px;font-weight:700}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{text-decoration:none;color:var(--mu);font-size:15px;transition:color .2s}
+.nav a:hover{color:var(--tx)}
+.nav .btn{min-height:40px;padding:0 16px;font-size:14px;color:var(--ink)}
+.lang{display:none}
+.menu-btn{display:none;background:none;border:1px solid var(--line2);color:var(--tx);border-radius:10px;width:44px;height:44px;cursor:pointer}
+
+/* hero */
+.hero{background:var(--bg1);padding-top:68px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:40px;min-height:min(600px,calc(100vh - 68px))}
+.hero-tx{padding:56px 0}
+.hi{font-size:18px;color:var(--tx);margin:0 0 6px}
+.name{font-size:clamp(44px,6vw,72px);line-height:1.05;font-weight:700;color:var(--cu);margin:0 0 14px;letter-spacing:-.01em}
+.role{font-size:clamp(18px,2vw,22px);font-weight:600;margin:0 0 14px}
+.hero p.desc{color:var(--mu);max-width:560px;margin:0 0 30px;font-size:17px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero-ph{align-self:end;justify-self:center;position:relative;width:440px;height:400px}
+.hero-ph .circ{position:absolute;left:0;top:0;width:440px;height:440px;border-radius:50%;background:#2E3236;overflow:hidden}
+.hero-ph img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+
+/* sobre */
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+.about p{color:#C9CDD2;margin:0 0 18px;font-size:17px}
+.about strong{color:var(--tx)}
+.tl{list-style:none;margin:0;padding:0;position:relative}
+.tl::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--cu),rgba(217,149,95,.15))}
+.tl li{position:relative;padding:0 0 26px 34px}
+.tl li::before{content:"";position:absolute;left:0;top:6px;width:16px;height:16px;border-radius:50%;background:var(--bg0);border:3px solid var(--cu)}
+.tl .yr{font-size:13px;font-weight:700;color:var(--cu);letter-spacing:.04em}
+.tl .tt{font-weight:600;margin:2px 0}
+.tl .ds{color:var(--mu);font-size:14px}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0 34px}
+.tools span{font-size:13px;font-weight:600;color:var(--cu);border:1px solid rgba(217,149,95,.4);border-radius:999px;padding:5px 12px}
+
+/* skills */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.sk{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px 22px 28px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.sk::after{content:"";position:absolute;inset:auto -40% -60% auto;width:220px;height:220px;border-radius:50%;background:radial-gradient(rgba(217,149,95,.16),transparent 65%);opacity:0;transition:opacity .4s}
+.sk:hover{border-color:rgba(217,149,95,.45);transform:translateY(-3px)}
+.sk:hover::after{opacity:1}
+.sk .ico{width:88px;height:72px;margin-bottom:22px}
+.sk h3{font-size:15px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 10px}
+.sk p{color:var(--mu);font-size:15px;margin:0}
+
+/* animated svg icons */
+.ico .s{stroke:var(--cu);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.ico .f{fill:var(--cu)}
+.ico .f2{fill:rgba(217,149,95,.28)}
+.ico .w{stroke:#E8EAEC;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ico .bar{transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(0)}
+.ico .draw{stroke-dasharray:var(--len,200);stroke-dashoffset:var(--len,200)}
+.ico .pop{transform-box:fill-box;transform-origin:center;transform:scale(0)}
+.ico .fade{opacity:0;transform:translateY(6px)}
+.ico .blink{opacity:0}
+.ico .spin{transform-box:fill-box;transform-origin:center}
+.in .bar{animation:grow .7s cubic-bezier(.2,.8,.2,1) forwards}
+.in .draw{animation:draw 1s ease forwards}
+.in .pop{animation:pop .45s cubic-bezier(.3,1.6,.5,1) forwards}
+.in .fade{animation:fade .5s ease forwards}
+.in .blink{animation:blink 1.6s ease forwards}
+.in .spin{animation:spin 1.2s ease}
+@keyframes grow{to{transform:scaleY(1)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{to{transform:scale(1)}}
+@keyframes fade{to{opacity:1;transform:none}}
+@keyframes blink{0%{opacity:0}30%{opacity:1}50%{opacity:.35}70%,100%{opacity:1}}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.d1{animation-delay:.12s!important}.d2{animation-delay:.24s!important}.d3{animation-delay:.36s!important}.d4{animation-delay:.48s!important}.d5{animation-delay:.6s!important}.d6{animation-delay:.72s!important}.d7{animation-delay:.84s!important}
+
+/* why power bi */
+.paper{background:var(--paper);color:var(--paper-tx)}
+.paper .h2{color:var(--paper-tx)}
+.paper .h2::before{background:var(--cu-d)}
+.pbi{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.pbi-logo{display:flex;align-items:center;gap:22px}
+.pbi-logo img{width:96px;height:auto}
+.pbi-logo span{font-size:40px;font-weight:700;color:#2B2F35;letter-spacing:-.01em}
+.pbi-tx{color:var(--paper-mu);margin:22px 0 0;font-size:17px;max-width:420px}
+.ben{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.bn{background:#fff;border:1px solid #E6E1DA;border-radius:var(--r);padding:22px;display:flex;gap:16px;align-items:flex-start}
+.bn .ico{width:52px;height:52px;flex:none}
+.bn .ico .s{stroke:var(--cu-d)}
+.bn .ico .f{fill:var(--cu-d)}
+.bn .ico .f2{fill:rgba(168,100,47,.18)}
+.bn h3{margin:0 0 4px;font-size:17px;color:var(--paper-tx)}
+.bn p{margin:0;color:var(--paper-mu);font-size:15px}
+
+/* projects */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 32px}
+.chip{min-height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--mu);font:500 14px 'DM Sans',sans-serif;cursor:pointer;transition:all .2s}
+.chip:hover{color:var(--tx);border-color:var(--mu2)}
+.chip[aria-pressed="true"]{background:var(--cu);border-color:var(--cu);color:var(--ink)}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:border-color .3s,transform .3s}
+.pc:hover{border-color:rgba(217,149,95,.4);transform:translateY(-3px)}
+.pc.hide{display:none}
+.cover{position:relative;aspect-ratio:16/9.6;background:#8D9AA8;padding:16px 16px 0;overflow:hidden}
+.cover::after{content:"";position:absolute;inset:auto 0 0 0;height:42%;background:var(--card)}
+.cover img,.cover .ph{position:relative;z-index:1;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:top;border-radius:8px;box-shadow:0 10px 28px rgba(0,0,0,.45);transition:transform .5s}
+.pc:hover .cover img{transform:scale(1.03)}
+.cover .ph{background:#22262B;display:grid;place-items:center;color:var(--mu);font-size:14px;text-align:center}
+.cover .ph svg{display:block;width:34px;height:34px;margin:0 auto 8px;stroke:var(--mu2)}
+.badge{position:absolute;z-index:2;top:26px;right:26px;background:var(--cu);color:var(--ink);font-size:11px;font-weight:700;letter-spacing:.08em;padding:5px 9px;border-radius:6px}
+.pb{padding:20px 22px 24px;display:flex;flex-direction:column;flex:1}
+.area{font-size:12px;font-weight:600;color:var(--mu);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.pt{font-size:19px;margin:0;font-weight:400;letter-spacing:.02em}
+.pt b{font-weight:700}
+.pn{color:var(--cu);font-weight:600;font-size:16px;margin:2px 0 14px}
+.pb p{color:#C2C7CC;font-size:14.5px;margin:0 0 14px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 18px}
+.tag{font-size:12px;color:var(--mu);border:1px solid var(--line2);border-radius:6px;padding:3px 8px}
+.pact{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.pact .btn{min-height:42px;padding:0 16px;font-size:14px}
+.pages{font-size:13px;color:var(--mu2);margin-left:auto}
+
+/* services + process */
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.svc .sv{flex-direction:column}
+.sv{border:1px solid rgba(217,149,95,.45);border-radius:var(--r);padding:24px;display:flex;gap:18px;align-items:flex-start;transition:background .3s}
+.sv:hover{background:rgba(217,149,95,.06)}
+.sv .ico{width:52px;height:52px;flex:none}
+.sv h3{margin:0 0 6px;font-size:15px;letter-spacing:.05em;text-transform:uppercase}
+.sv p{margin:0;color:var(--mu);font-size:15px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:56px;counter-reset:st}
+.st{position:relative;padding-top:52px}
+.st::before{counter-increment:st;content:"0" counter(st);position:absolute;top:0;left:0;font-size:32px;font-weight:700;color:var(--cu)}
+.st::after{content:"";position:absolute;top:22px;left:58px;right:-10px;height:1px;background:var(--line2)}
+.st:last-child::after{display:none}
+.st h3{margin:0 0 6px;font-size:17px}
+.st p{margin:0;color:var(--mu);font-size:15px}
+
+/* contact */
+.contact{background:linear-gradient(135deg,#1D1F22,#141619);border-top:1px solid var(--line)}
+.ct{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+.ct h2{font-size:clamp(30px,4vw,46px);line-height:1.12;margin:0 0 14px}
+.ct h2 em{font-style:normal;color:var(--cu)}
+.ct p{color:var(--mu);margin:0;font-size:17px}
+.cbox{display:flex;flex-direction:column;gap:12px}
+.mail{display:flex;gap:10px}
+.mail .btn-cu{flex:1;justify-content:center}
+.copy{min-width:46px;justify-content:center;padding:0 14px}
+.cbox .btn-ln{justify-content:center}
+.copied{font-size:13px;color:var(--cu);min-height:20px}
+.btn svg.li,.btn svg.wa{width:22px;height:22px}
+.btn-li:hover{border-color:#0A66C2;color:var(--tx)}
+.btn-wa:hover{border-color:#25D366;color:var(--tx)}
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:60;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.45);transition:transform .2s;opacity:0;pointer-events:none}
+.wa-float.show{opacity:1;pointer-events:auto}
+.wa-float:hover{transform:scale(1.07)}
+.wa-float svg{width:32px;height:32px}
+footer{padding:28px 0;color:var(--mu2);font-size:14px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* modal */
+dialog{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100%;height:100%;color:var(--tx)}
+dialog::backdrop{background:rgba(0,0,0,.78);backdrop-filter:blur(4px)}
+.mdl{width:min(1240px,96vw);max-height:94vh;margin:3vh auto;background:#111315;border:1px solid var(--line2);border-radius:16px;display:flex;flex-direction:column;overflow:hidden}
+.mh{display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid var(--line)}
+.mh h3{margin:0;font-size:18px;flex:1}
+.mh h3 small{display:block;font-size:13px;color:var(--cu);font-weight:600}
+.tabs{display:flex;gap:6px}
+.tab{min-height:38px;padding:0 14px;border-radius:8px;border:1px solid var(--line2);background:transparent;color:var(--mu);font:500 14px 'DM Sans';cursor:pointer}
+.tab[aria-selected="true"]{background:#24282D;color:var(--tx);border-color:#3A3F45}
+.x{width:42px;height:42px;border-radius:10px;border:1px solid var(--line2);background:transparent;color:var(--tx);cursor:pointer;font-size:20px}
+.mbody{flex:1;overflow:auto;padding:16px 20px 20px}
+.frame{position:relative;width:100%;aspect-ratio:16/9.4;background:#0B0C0D;border-radius:10px;overflow:hidden}
+.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.gal img{border-radius:8px;border:1px solid var(--line);cursor:zoom-in}
+.phone{margin:0 auto;width:min(360px,80vw);aspect-ratio:9/19.5;border:12px solid #050506;border-radius:42px;position:relative;overflow:hidden;background:#000;box-shadow:0 0 0 1px #2A2D31}
+.phone::before{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:90px;height:22px;background:#050506;border-radius:12px;z-index:2}
+.phone iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.mfoot{display:flex;gap:10px;justify-content:flex-end;padding:0 20px 18px}
+.zoom{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;place-items:center;z-index:100;cursor:zoom-out;padding:3vw}
+.zoom.on{display:grid}
+.zoom img{max-height:94vh;border-radius:8px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.rv.vis{opacity:1;transform:none}
+
+@media (max-width:1000px){
+  .grid4{grid-template-columns:1fr 1fr}
+  .pgrid{grid-template-columns:1fr 1fr}
+  .svc{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr;row-gap:36px}
+  .st::after{display:none}
+  .pbi,.about,.ct{grid-template-columns:1fr;gap:36px}
+}
+@media (max-width:760px){
+  .band{padding:72px 0}
+  .nav{position:fixed;inset:68px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:rgba(10,10,10,.97);border-bottom:1px solid var(--line);padding:8px 24px 18px;display:none}
+  .nav.open{display:flex}
+  .nav a{padding:14px 0;border-bottom:1px solid var(--line)}
+  .nav .btn{margin-top:14px;justify-content:center}
+  .menu-btn{display:grid;place-items:center}
+  .hero .wrap{grid-template-columns:1fr;min-height:0;gap:0}
+  .hero-ph{order:-1;width:240px;height:220px;margin-top:28px}
+  .hero-ph .circ{width:240px;height:240px}
+  .hero-tx{padding:28px 0 56px}
+  .grid4,.pgrid,.ben,.steps,.svc{grid-template-columns:1fr}
+  .mdl{width:100vw;max-height:100vh;height:100vh;margin:0;border-radius:0}
+  .mh{flex-wrap:wrap}
+  .frame{aspect-ratio:auto;height:62vh}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+  .ico .bar{transform:none}.ico .draw{stroke-dashoffset:0}.ico .pop{transform:none}.ico .fade,.ico .blink{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="brand" href="#topo" aria-label="Douglas Riguini, início"><span class="brand-mk">DR</span><span>Douglas Riguini</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#contato">Contato</a>
+      <a class="lang" href="en/" hreflang="en" aria-label="English version">EN</a>
+      <a class="btn btn-cu" href="#contato">Falar comigo</a>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+
+<section class="hero" aria-label="Apresentação">
+  <div class="wrap">
+    <div class="hero-tx">
+      <p class="hi">Olá! Meu nome é</p>
+      <h1 class="name">Douglas Riguini</h1>
+      <p class="role">Analista de dados e desenvolvedor Power BI</p>
+      <p class="desc">Crio dashboards interativos e automatizados para vendas, finanças, logística, RH e marketing, transformando dados espalhados em decisões claras.</p>
+      <div class="cta">
+        <a class="btn btn-cu" href="#projetos">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
+          Ver projetos
+        </a>
+        <a class="btn btn-ln" href="https://www.linkedin.com/in/douglas-riguini" target="_blank" rel="noopener">
+          <svg class="li" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#0A66C2"/><path fill="#fff" d="M7.1 9.6h2.3v7.5H7.1zM8.25 5.9a1.33 1.33 0 1 1 0 2.66 1.33 1.33 0 0 1 0-2.66zM10.9 9.6h2.2v1h.03c.31-.58 1.06-1.2 2.18-1.2 2.33 0 2.76 1.53 2.76 3.53v4.17h-2.3v-3.7c0-.88-.02-2.02-1.23-2.02-1.23 0-1.42.96-1.42 1.95v3.77h-2.3z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="hero-ph">
+      <div class="circ"><img src="img/douglas.webp" alt="Foto de Douglas Riguini" width="720" height="720"></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="sobre">
+  <div class="wrap about">
+    <div class="rv">
+      <h2 class="h2">Sobre mim</h2>
+      <p style="margin-top:22px">Sou <strong>analista de dados e desenvolvedor Power BI</strong>. Trabalho com Power BI desde 2021 e tenho formação em ciência de dados.</p>
+      <p>Meu trabalho começa antes do dashboard: entender o negócio, organizar os dados e definir as perguntas que precisam de resposta. Depois vêm a modelagem, as medidas em DAX e um layout pensado para quem vai usar o painel no dia a dia.</p>
+      <p>Cada projeto do portfólio simula uma empresa e um problema real, de uma DRE no padrão IFRS 18 a um funil de captação de marketing, sempre com o mesmo objetivo: <strong>gerar decisões, não só gráficos</strong>.</p>
+    </div>
+    <div class="rv">
+      <ol class="tl" aria-label="Formação">
+        <li><div class="yr">FORMAÇÃO</div><div class="tt">Ciência de dados</div></li>
+        <li><div class="yr">FORMAÇÃO</div><div class="tt">Análise de dados</div></li>
+        <li><div class="yr">FORMAÇÃO</div><div class="tt">Python para análise de dados</div></li>
+        <li><div class="yr">2021</div><div class="tt">Power BI Completo: do básico ao avançado</div></li>
+        <li><div class="yr">2021</div><div class="tt">Treinamentos Microsoft</div><div class="ds">Azure Fundamentals (AZ-900), Azure AI Fundamentals (AI-900) e Microsoft 365 Fundamentals (MS-900).</div></li>
+        <li><div class="yr">HOJE</div><div class="tt">Analista de dados e desenvolvedor Power BI</div><div class="ds">Dashboards para finanças, logística, marketing, RH, mineração e saúde.</div></li>
+      </ol>
+      <div class="tools" aria-label="Ferramentas">
+        <span>Power BI</span><span>DAX</span><span>Power Query</span><span>Modelagem dimensional</span><span>SQL</span><span>Excel</span><span>Python</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" aria-labelledby="hab">
+  <div class="wrap">
+    <h2 class="h2" id="hab">Principais habilidades</h2>
+    <p class="lead">Do dado bruto ao painel que a diretoria abre toda segunda-feira.</p>
+    <div class="grid4">
+      <article class="sk anim">
+        <svg class="ico" viewBox="0 0 88 72" aria-hidden="true">
+          <path class="s" d="M6 66h76" />
+          <rect class="f bar" x="14" y="40" width="12" height="26" rx="2"/>
+          <rect class="f bar d1" x="34" y="28" width="12" height="38" rx="2"/>
+          <rect class="f bar d2" x="54" y="16" width="12" height="50" rx="2"/>
+          <path class="w draw d3" style="--len:90" d="M12 34 L36 22 L52 26 L76 8"/>
+          <circle class="f pop d6" cx="76" cy="8" r="5"/>
+        </svg>
+        <h3>Visualização e análise de dados</h3>
+        <p>Dashboards profissionais e interativos em Power BI, com foco nas perguntas que o negócio precisa responder.</p>
+      </article>
+      <article class="sk anim">
+        <svg class="ico" viewBox="0 0 88 72" aria-hidden="true">
+          <rect class="s" x="4" y="4" width="80" height="64" rx="6"/>
+          <rect class="f fade" x="10" y="10" width="40" height="6" rx="2"/>
+          <rect class="f2 fade d1" x="10" y="22" width="20" height="14" rx="2"/>
+          <rect class="f2 fade d2" x="34" y="22" width="20" height="14" rx="2"/>
+          <rect class="f2 fade d3" x="58" y="22" width="20" height="14" rx="2"/>
+          <rect class="f2 fade d4" x="10" y="42" width="68" height="20" rx="2"/>
+          <path class="s draw d5" style="--len:80" d="M14 58 L28 50 L40 54 L56 46 L74 48"/>
+        </svg>
+        <h3>Design de dashboards</h3>
+        <p>Layouts próprios para cada cliente, com identidade visual, fundos personalizados e navegação simples.</p>
+      </article>
+      <article class="sk anim">
+        <svg class="ico" viewBox="0 0 88 72" aria-hidden="true">
+          <path class="s draw d1" style="--len:30" d="M34 30 L20 18"/>
+          <path class="s draw d1" style="--len:30" d="M54 30 L68 18"/>
+          <path class="s draw d2" style="--len:30" d="M34 42 L20 54"/>
+          <path class="s draw d2" style="--len:30" d="M54 42 L68 54"/>
+          <rect class="f2 s" x="30" y="26" width="28" height="20" rx="3"/>
+          <text class="blink d5" x="44" y="40.5" text-anchor="middle" font-size="12" font-style="italic" font-weight="700" fill="#E8EAEC" font-family="Georgia,serif">fx</text>
+          <rect class="f pop d3" x="6" y="8" width="18" height="12" rx="2"/>
+          <rect class="f pop d3" x="64" y="8" width="18" height="12" rx="2"/>
+          <rect class="f pop d4" x="6" y="52" width="18" height="12" rx="2"/>
+          <rect class="f pop d4" x="64" y="52" width="18" height="12" rx="2"/>
+        </svg>
+        <h3>Modelagem e DAX</h3>
+        <p>Modelagem em estrela, medidas DAX avançadas, inteligência de tempo e conexão com planilhas, sistemas e bancos SQL.</p>
+      </article>
+      <article class="sk anim">
+        <svg class="ico" viewBox="0 0 88 72" aria-hidden="true">
+          <rect class="f2 s" x="14" y="32" width="50" height="34" rx="5"/>
+          <path class="s" d="M30 32v-6a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v6"/>
+          <path class="s" d="M14 46h50"/>
+          <rect class="f" x="34" y="42" width="10" height="8" rx="2"/>
+          <path class="s draw d2" style="--len:70" d="M50 24 L60 14 L66 20 L80 6"/>
+          <path class="s draw d5" style="--len:20" d="M72 6 H80 V14"/>
+        </svg>
+        <h3>Visão de negócio</h3>
+        <p>Experiência prática na indústria, na saúde e no mercado financeiro: entendo o processo antes de construir o indicador.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band paper" aria-labelledby="pbi">
+  <div class="wrap pbi">
+    <div class="rv">
+      <div class="pbi-logo"><img src="img/powerbi.png" alt="Ícone do Power BI" width="196" height="279"><span>Power BI</span></div>
+      <h2 class="h2" id="pbi" style="margin-top:30px">Por que usar o Power BI?</h2>
+      <p class="pbi-tx">A ferramenta de análise da Microsoft, usada por empresas de todos os tamanhos para trocar relatórios manuais por painéis que se atualizam sozinhos.</p>
+    </div>
+    <div class="ben">
+      <article class="bn anim">
+        <svg class="ico" viewBox="0 0 52 52" aria-hidden="true">
+          <rect class="f2 s pop" x="2" y="4" width="14" height="10" rx="2"/>
+          <rect class="f2 s pop d1" x="2" y="21" width="14" height="10" rx="2"/>
+          <rect class="f2 s pop d2" x="2" y="38" width="14" height="10" rx="2"/>
+          <path class="s draw d3" style="--len:40" d="M16 9 C26 9 26 26 34 26 M16 26 H34 M16 43 C26 43 26 26 34 26"/>
+          <rect class="f pop d5" x="34" y="17" width="16" height="18" rx="3"/>
+        </svg>
+        <div><h3>Tudo num lugar só</h3><p>Planilhas, sistema e banco de dados reunidos num único painel.</p></div>
+      </article>
+      <article class="bn anim">
+        <svg class="ico" viewBox="0 0 52 52" aria-hidden="true">
+          <g class="spin d1"><path class="s" d="M42 18 A17 17 0 0 0 11 15"/><path class="s" d="M10 34 A17 17 0 0 0 41 37"/><path class="s" d="M11 6 V15 H20"/><path class="s" d="M41 46 V37 H32"/></g>
+          <rect class="f bar d3" x="21" y="26" width="4" height="8" rx="1"/>
+          <rect class="f bar d4" x="27" y="21" width="4" height="13" rx="1"/>
+        </svg>
+        <div><h3>Atualização automática</h3><p>Sem montar relatório na mão toda semana: os números se atualizam sozinhos.</p></div>
+      </article>
+      <article class="bn anim">
+        <svg class="ico" viewBox="0 0 52 52" aria-hidden="true">
+          <rect class="s" x="14" y="2" width="24" height="48" rx="5"/>
+          <path class="s" d="M23 44h6"/>
+          <rect class="f bar d1" x="19" y="26" width="4" height="12" rx="1"/>
+          <rect class="f bar d2" x="24" y="20" width="4" height="18" rx="1"/>
+          <rect class="f bar d3" x="29" y="14" width="4" height="24" rx="1"/>
+        </svg>
+        <div><h3>No celular</h3><p>Os indicadores da empresa onde você estiver, no computador ou no telefone.</p></div>
+      </article>
+      <article class="bn anim">
+        <svg class="ico" viewBox="0 0 52 52" aria-hidden="true">
+          <circle class="s" cx="24" cy="28" r="20"/>
+          <circle class="f2 s" cx="24" cy="28" r="12"/>
+          <circle class="f pop d2" cx="24" cy="28" r="4"/>
+          <path class="s draw d4" style="--len:40" d="M24 28 L46 6"/>
+          <path class="s draw d6" style="--len:16" d="M40 6 H46 V12"/>
+        </svg>
+        <div><h3>Decisão com número</h3><p>Ver onde a empresa ganha e onde perde dinheiro, sem achismo.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="projetos" aria-labelledby="proj">
+  <div class="wrap">
+    <h2 class="h2" id="proj">Projetos</h2>
+    <p class="lead">Empresas fictícias, dados simulados e problemas reais de negócio. Clique em "Ver detalhes" para usar cada dashboard.</p>
+    <div class="chips" id="chips" role="group" aria-label="Filtrar por área"></div>
+    <div class="pgrid" id="pgrid"></div>
+  </div>
+</section>
+
+<section class="band alt" id="servicos" aria-labelledby="serv">
+  <div class="wrap">
+    <h2 class="h2" id="serv">Como posso te ajudar</h2>
+    <p class="lead">Do primeiro painel à manutenção do que você já tem.</p>
+    <div class="svc">
+      <article class="sv anim">
+        <svg class="ico" viewBox="0 0 52 52" aria-hidden="true">
+          <circle class="f2 pop" cx="12" cy="36" r="4"/><circle class="f2 pop d1" cx="20" cy="26" r="4"/><circle class="f2 pop d2" cx="30" cy="30" r="4"/><circle class="f pop d3" cx="38" cy="14" r="4"/>
+          <path class="s draw d4" style="--len:50" d="M8 42 L44 10"/>
+          <circle class="s" cx="34" cy="34" r="9"/><path class="s" d="M41 41l7 7"/>
+        </svg>
+        <div><h3>Análise de dados</h3><p>Investigo os dados da empresa para responder perguntas específicas, como por que as vendas caíram, quais clientes dão mais margem ou onde estão as perdas, e entrego as conclusões com gráficos e recomendações.</p></div>
+      </article>
+      <article class="sv anim">
+        <svg class="ico" viewBox="0 0 52 52" aria-hidden="true">
+          <rect class="s" x="3" y="5" width="46" height="32" rx="4"/>
+          <path class="s" d="M20 47h12M26 37v10"/>
+          <rect class="f bar" x="12" y="22" width="6" height="9" rx="1"/>
+          <rect class="f bar d1" x="22" y="16" width="6" height="15" rx="1"/>
+          <rect class="f bar d2" x="32" y="11" width="6" height="20" rx="1"/>
+        </svg>
+        <div><h3>Desenvolvimento de dashboards</h3><p>Dashboards personalizados em Power BI, do levantamento à entrega.</p></div>
+      </article>
+      <article class="sv anim">
+        <svg class="ico" viewBox="0 0 52 52" aria-hidden="true">
+          <path class="f fade" d="M26 6 L46 16 L26 26 L6 16 Z"/>
+          <path class="s fade d1" d="M6 26 L26 36 L46 26"/>
+          <path class="s fade d2" d="M6 36 L26 46 L46 36"/>
+        </svg>
+        <div><h3>Indicadores para o seu setor</h3><p>Vendas, financeiro, logística, RH e marketing, com conhecimento aprofundado também na área da saúde.</p></div>
+      </article>
+      <article class="sv anim">
+        <svg class="ico" viewBox="0 0 52 52" aria-hidden="true">
+          <g class="spin"><circle class="f2 s" cx="26" cy="26" r="9"/><path class="s" d="M26 6v6M26 40v6M6 26h6M40 26h6M12 12l4 4M36 36l4 4M12 40l4-4M36 16l4-4"/></g>
+          <circle class="f" cx="26" cy="26" r="3"/>
+        </svg>
+        <div><h3>Manutenção e automação</h3><p>Melhoria de relatórios existentes, conexão com bancos de dados e atualização automática.</p></div>
+      </article>
+    </div>
+    <div class="steps" aria-label="Como trabalho">
+      <div class="st rv"><h3>Conversa</h3><p>Entendo o negócio e as perguntas que o painel precisa responder.</p></div>
+      <div class="st rv"><h3>Dados e modelo</h3><p>Organizo as fontes e monto o modelo de dados com as medidas certas.</p></div>
+      <div class="st rv"><h3>Construção</h3><p>Desenvolvo o dashboard e ajusto junto com você em rodadas de revisão.</p></div>
+      <div class="st rv"><h3>Entrega</h3><p>Publicação, explicação de uso e suporte para os primeiros ajustes.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band contact" id="contato" aria-labelledby="cont">
+  <div class="wrap ct">
+    <div class="rv">
+      <h2 id="cont">Vamos conversar sobre os <em>dados da sua empresa?</em></h2>
+      <p>Conte o que você precisa acompanhar. Eu respondo com uma proposta de como o dashboard pode ajudar.</p>
+    </div>
+    <div class="cbox rv">
+      <div class="mail">
+        <a class="btn btn-cu" href="mailto:douglas.riguini@gmail.com?subject=Contato%20pelo%20portf%C3%B3lio">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+          douglas.riguini@gmail.com
+        </a>
+        <button class="btn btn-ln copy" id="copy" type="button" aria-label="Copiar e-mail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+      </div>
+      <a class="btn btn-ln btn-wa" href="https://wa.me/message/DFAFH4EY7BPUB1" target="_blank" rel="noopener">
+        <svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/><path fill="#fff" d="M9.1 7.3c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.9 4.5 4 2.2.9 2.7.7 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.3-1.7-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.6-1.2-1.4-1.3-1.7-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4l-.8-1.9z"/></svg>
+        WhatsApp
+      </a>
+      <a class="btn btn-ln btn-li" href="https://www.linkedin.com/in/douglas-riguini" target="_blank" rel="noopener">
+        <svg class="li" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#0A66C2"/><path fill="#fff" d="M7.1 9.6h2.3v7.5H7.1zM8.25 5.9a1.33 1.33 0 1 1 0 2.66 1.33 1.33 0 0 1 0-2.66zM10.9 9.6h2.2v1h.03c.31-.58 1.06-1.2 2.18-1.2 2.33 0 2.76 1.53 2.76 3.53v4.17h-2.3v-3.7c0-.88-.02-2.02-1.23-2.02-1.23 0-1.42.96-1.42 1.95v3.77h-2.3z"/></svg>
+        linkedin.com/in/douglas-riguini
+      </a>
+      <div class="copied" id="copied" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Douglas Riguini</span><span>Empresas e dados dos projetos são fictícios.</span></div>
+</footer>
+
+<a class="wa-float" id="waFloat" href="https://wa.me/message/DFAFH4EY7BPUB1" target="_blank" rel="noopener" aria-label="Conversar no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 1 1-4.2 15.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8z"/><path fill="#fff" d="M9.1 7.3c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.9 4.5 4 2.2.9 2.7.7 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.3-1.7-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.6-1.2-1.4-1.3-1.7-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4l-.8-1.9z"/></svg></a>
+<dialog id="dlg" aria-labelledby="dlgTitle">
+  <div class="mdl">
+    <div class="mh">
+      <h3 id="dlgTitle"></h3>
+      <div class="tabs" role="tablist" id="tabs"></div>
+      <button class="x" id="dlgClose" type="button" aria-label="Fechar">×</button>
+    </div>
+    <div class="mbody" id="dlgBody"></div>
+    <div class="mfoot" id="dlgFoot"></div>
+  </div>
+</dialog>
+<div class="zoom" id="zoom" role="dialog" aria-label="Imagem ampliada"><img alt="" id="zoomImg"></div>
+
+<script>
+const PBI = r => 'https://app.powerbi.com/view?r=' + r + '&language=pt-BR&formatLocale=pt-BR';
+const PROJETOS = [
+  {id:'techontronic', area:'Marketing', titulo:'MARKETING', nome:'Tech on Tronic', paginas:3,
+   desc:'Funil de captação de uma escola de TI, da impressão do anúncio à matrícula: leads, CPL, CAC, ROAS por canal, conteúdo orgânico e campanhas pagas.',
+   tags:['Funil','CAC e ROAS','HTML e SVG no Power BI','Minitendências'],
+   link:PBI('eyJrIjoiY2YzMjEyYjEtMzFkZS00NWJmLWFiYmQtYjY0YTljMjkxNTExIiwidCI6IjE4MzAxMzA2LTlkYmMtNDY3Yi05ZDNiLWMwNTc5ZmQ1YjM0MCJ9'), mobile:null},
+  {id:'newton', area:'Logística', titulo:'LOGÍSTICA', nome:'NewTon Cargas', paginas:3,
+   desc:'Operação de uma transportadora com três filiais: receita, viagens, margem, OTD e OTIF, custo por kg, custo das ocorrências e simulador para abertura de nova filial.',
+   tags:['OTD e OTIF','Simulador de cenários','DAX'],
+   link:PBI('eyJrIjoiZmVkYTk2NTgtNTNlZi00MmY0LWIyMGQtOTMyMTA0MmYzZjc4IiwidCI6IjE4MzAxMzA2LTlkYmMtNDY3Yi05ZDNiLWMwNTc5ZmQ1YjM0MCJ9'), mobile:null},
+  {id:'mixmetrix', area:'Finanças', titulo:'FINANCEIRO', nome:'MixMetrix DRE', paginas:3,
+   desc:'DRE de uma varejista de eletrônicos no novo padrão IFRS 18 (CPC 51): orçado × realizado, despesas por natureza, lucro operacional e análise da margem por produto.',
+   tags:['IFRS 18','Orçado × realizado','Quadrantes de margem','DAX'],
+   link:PBI('eyJrIjoiNDI3OTljMTMtYzkwMi00MmRjLWE2ODktYjdmODFkYWZlNTFmIiwidCI6IjE4MzAxMzA2LTlkYmMtNDY3Yi05ZDNiLWMwNTc5ZmQ1YjM0MCJ9'), mobile:null},
+  {id:'medvision-rh', area:'RH', titulo:'RH', nome:'MedVision RH', paginas:5,
+   desc:'People analytics de uma rede de clínicas: headcount, custo de pessoal por unidade, absenteísmo, horas extras, turnover e controle de exposição à radiação da equipe.',
+   tags:['People analytics','Integração com a produção','DAX'],
+   link:PBI('eyJrIjoiYmI4YmY3Y2UtMjYzZC00OGM2LTkzNDEtYTM0ZTAyZjc0NzlkIiwidCI6IjE4MzAxMzA2LTlkYmMtNDY3Yi05ZDNiLWMwNTc5ZmQ1YjM0MCJ9'), mobile:null},
+  {id:'aurum', area:'Mineração', titulo:'MINERAÇÃO', nome:'Aurum Mineração', paginas:5,
+   desc:'Produção de ouro por mina contra o plano, custo total por onça (AISC), composição de custos, margem e resultado por mina.',
+   tags:['AISC','Plano × realizado','Simulador'],
+   link:PBI('eyJrIjoiZjA2YzM0ZjItZTFlZi00OTI2LWIzNzgtOWY0YzM4YmJlNmRiIiwidCI6IjE4MzAxMzA2LTlkYmMtNDY3Yi05ZDNiLWMwNTc5ZmQ1YjM0MCJ9'), mobile:null},
+  {id:'medvision-imagem', area:'Saúde', titulo:'SAÚDE', nome:'MedVision Imagem', paginas:5,
+   desc:'Gestão de uma rede de clínicas de diagnóstico por imagem: receita por modalidade e convênio, exames, ticket médio, ocupação dos equipamentos, faltas e receita perdida.',
+   tags:['Convênios e glosas','Ocupação','Receita perdida'],
+   link:PBI('eyJrIjoiNjYwY2YwNTQtOGQzOS00NDM5LTgxNGQtZjQ1MzU4ZGU2ODM2IiwidCI6IjE4MzAxMzA2LTlkYmMtNDY3Yi05ZDNiLWMwNTc5ZmQ1YjM0MCJ9'), mobile:null},
+  {id:'caixa-alta', area:'Comercial', titulo:'COMERCIAL', nome:'Caixa Alta Distribuidora', paginas:0, breve:true,
+   desc:'Vendas e fluxo de caixa de uma distribuidora: meta × realizado por vendedor, clientes, inadimplência e projeção de caixa, com dados em banco SQL na nuvem e atualização diária.',
+   tags:['SQL na nuvem','Atualização automática','Fluxo de caixa']},
+  {id:'tempera', area:'Indústria', titulo:'INDÚSTRIA', nome:'Têmpera Metalúrgica', paginas:0, breve:true,
+   desc:'Produção de uma metalúrgica: OEE por máquina, refugo, paradas por motivo, manutenção e produção contra o plano.',
+   tags:['OEE','Paradas e refugo','Manutenção']},
+  {id:'giro', area:'Estoque', titulo:'ESTOQUE', nome:'Giro Atacado', paginas:0, breve:true,
+   desc:'Estoque e compras de um atacado: cobertura, giro, ruptura, curva ABC, lead time e desempenho de fornecedores.',
+   tags:['Curva ABC','Giro e cobertura','Fornecedores']}
+];
+
+const $ = s => document.querySelector(s);
+const ICON = {
+  lupa:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg>',
+  cel:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>',
+  ext:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>',
+  ph:'<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>'
+};
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// cards
+const grid = $('#pgrid');
+grid.innerHTML = PROJETOS.map(p => `
+<article class="pc rv" data-area="${esc(p.area)}">
+  <div class="cover">
+    ${p.breve ? `<div class="ph"><div>${ICON.ph}${esc(p.nome)}</div></div><span class="badge">EM BREVE</span>`
+              : `<img src="img/capas/${p.id}-1.webp" alt="Página inicial do dashboard ${esc(p.nome)}" loading="lazy" width="1920" height="1080">`}
+  </div>
+  <div class="pb">
+    <div class="area">${esc(p.area)}</div>
+    <h3 class="pt">DASHBOARD <b>${esc(p.titulo)}</b></h3>
+    <div class="pn">${esc(p.nome)}</div>
+    <p>${esc(p.desc)}</p>
+    <div class="tags">${p.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
+    <div class="pact">
+      ${p.breve ? `<button class="btn" disabled>Em breve</button>`
+                : `<button class="btn btn-cu" data-open="${p.id}">${ICON.lupa}Ver detalhes</button>
+                   ${p.mobile ? `<button class="btn btn-ln" data-mobile="${p.id}">${ICON.cel}Versão mobile</button>` : ''}
+                   <span class="pages">${p.paginas} páginas</span>`}
+    </div>
+  </div>
+</article>`).join('');
+
+// chips
+const areas = ['Todos', ...new Set(PROJETOS.map(p => p.area))];
+$('#chips').innerHTML = areas.map((a,i) => `<button class="chip" type="button" aria-pressed="${i===0}" data-area="${esc(a)}">${esc(a)}</button>`).join('');
+$('#chips').addEventListener('click', e => {
+  const b = e.target.closest('.chip'); if (!b) return;
+  document.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', c === b));
+  const a = b.dataset.area;
+  document.querySelectorAll('.pc').forEach(c => c.classList.toggle('hide', a !== 'Todos' && c.dataset.area !== a));
+});
+
+// modal
+const dlg = $('#dlg'), body = $('#dlgBody'), tabs = $('#tabs'), foot = $('#dlgFoot');
+function openProj(id, modo) {
+  const p = PROJETOS.find(x => x.id === id); if (!p) return;
+  $('#dlgTitle').innerHTML = `<small>${esc(p.nome)}</small>Dashboard ${esc(p.titulo.toLowerCase())}`;
+  const views = modo === 'mobile' ? [['mobile','Versão mobile']] : [['live','Interativo'],['gal',`Páginas (${p.paginas})`]];
+  tabs.innerHTML = views.map((v,i) => `<button class="tab" role="tab" type="button" aria-selected="${i===0}" data-v="${v[0]}">${v[1]}</button>`).join('');
+  const show = v => {
+    tabs.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-selected', t.dataset.v === v));
+    if (v === 'live') body.innerHTML = `<div class="frame"><iframe src="${p.link}" title="Dashboard ${esc(p.nome)}" allowfullscreen loading="lazy"></iframe></div>`;
+    if (v === 'mobile') body.innerHTML = `<div class="phone"><iframe src="${p.mobile}" title="Versão mobile do ${esc(p.nome)}" loading="lazy"></iframe></div>`;
+    if (v === 'gal') body.innerHTML = `<div class="gal">${Array.from({length:p.paginas},(_,i)=>`<img src="img/capas/${p.id}-${i+1}.webp" alt="Página ${i+1} do ${esc(p.nome)}" loading="lazy">`).join('')}</div>`;
+  };
+  tabs.onclick = e => { const t = e.target.closest('.tab'); if (t) show(t.dataset.v); };
+  show(views[0][0]);
+  const url = modo === 'mobile' ? p.mobile : p.link;
+  foot.innerHTML = `<a class="btn btn-ln" href="${url}" target="_blank" rel="noopener">${ICON.ext}Abrir em tela cheia</a>`;
+  dlg.showModal(); document.body.style.overflow = 'hidden';
+}
+grid.addEventListener('click', e => {
+  const o = e.target.closest('[data-open]'), m = e.target.closest('[data-mobile]');
+  if (o) openProj(o.dataset.open); if (m) openProj(m.dataset.mobile, 'mobile');
+});
+const closeDlg = () => { dlg.close(); };
+$('#dlgClose').onclick = closeDlg;
+dlg.addEventListener('click', e => { if (e.target === dlg) closeDlg(); });
+dlg.addEventListener('close', () => { body.innerHTML = ''; document.body.style.overflow = ''; });
+body.addEventListener('click', e => { const i = e.target.closest('.gal img'); if (i) { $('#zoomImg').src = i.src; $('#zoomImg').alt = i.alt; $('#zoom').classList.add('on'); } });
+$('#zoom').onclick = () => $('#zoom').classList.remove('on');
+
+// copy e-mail
+$('#copy').onclick = async () => {
+  try { await navigator.clipboard.writeText('douglas.riguini@gmail.com'); $('#copied').textContent = 'E-mail copiado.'; }
+  catch { $('#copied').textContent = 'douglas.riguini@gmail.com'; }
+  setTimeout(() => $('#copied').textContent = '', 2600);
+};
+
+// header + menu
+const hdr = $('#hdr');
+const waF = $('#waFloat'), contato = $('#contato');
+const onScroll = () => {
+  hdr.classList.toggle('solid', scrollY > 20);
+  const r = contato.getBoundingClientRect();
+  waF.classList.toggle('show', scrollY > 500 && r.top > innerHeight * .6);
+};
+addEventListener('scroll', onScroll, {passive:true}); onScroll();
+const nav = $('#nav'), mb = $('#menuBtn');
+mb.onclick = () => { const o = nav.classList.toggle('open'); mb.setAttribute('aria-expanded', o); };
+nav.addEventListener('click', e => { if (e.target.closest('a')) { nav.classList.remove('open'); mb.setAttribute('aria-expanded', false); } });
+
+// reveal + icon animations
+const io = new IntersectionObserver(es => es.forEach(en => {
+  if (!en.isIntersecting) return;
+  en.target.classList.add(en.target.classList.contains('anim') ? 'in' : 'vis');
+  io.unobserve(en.target);
+}), {threshold:.25});
+document.querySelectorAll('.rv,.anim').forEach(el => io.observe(el));
+document.querySelectorAll('.anim').forEach(el => el.addEventListener('mouseenter', () => {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  el.classList.remove('in'); void el.offsetWidth; el.classList.add('in');
+}));
+</script>
+</body>
+</html>
