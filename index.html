@@ -61,7 +61,13 @@ a{color:inherit}
 .nav a{text-decoration:none;color:var(--mu);font-size:15px;transition:color .2s}
 .nav a:hover{color:var(--tx)}
 .nav .btn{min-height:40px;padding:0 16px;font-size:14px;color:var(--ink)}
-.lang{font-weight:600;letter-spacing:.04em}
+.hl{display:flex;align-items:center;gap:22px}
+.langsw{display:flex;gap:2px;padding:3px;border:1px solid var(--line2);border-radius:10px}
+.langsw a{display:flex;align-items:center;gap:6px;padding:5px 9px;border-radius:7px;font-size:13px;font-weight:600;letter-spacing:.04em;text-decoration:none;color:var(--mu)}
+.langsw a svg{width:20px;height:14px;flex:none}
+.langsw a.on{background:rgba(255,255,255,.08);color:var(--tx)}
+.langsw a:not(.on):hover{color:var(--tx)}
+@media (max-width:420px){.hl{gap:12px}.brand span:last-child{display:none}}
 .menu-btn{display:none;background:none;border:1px solid var(--line2);color:var(--tx);border-radius:10px;width:44px;height:44px;cursor:pointer}
 
 /* hero */
@@ -279,7 +285,10 @@ dialog::backdrop{background:rgba(0,0,0,.78);backdrop-filter:blur(4px)}
 
 <header class="hdr" id="hdr">
   <div class="wrap">
-    <a class="brand" href="#topo" aria-label="Douglas Riguini, início"><span class="brand-mk">DR</span><span>Douglas Riguini</span></a>
+    <div class="hl">
+      <a class="brand" href="#topo" aria-label="Douglas Riguini, início"><span class="brand-mk">DR</span><span>Douglas Riguini</span></a>
+      <div class="langsw" role="group" aria-label="Idioma / Language"><a class="on" href="./" hreflang="pt-BR" lang="pt-BR" aria-current="true"><svg viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" rx="2" fill="#009C3B"/><path d="M10 2.2L17.6 7 10 11.8 2.4 7z" fill="#FEDF00"/><circle cx="10" cy="7" r="2.8" fill="#002776"/></svg>PT</a><a href="en/" hreflang="en" lang="en"><svg viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" rx="2" fill="#fff"/><path d="M0 2a2 2 0 0 1 2-2h3v14H2a2 2 0 0 1-2-2zM15 0h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3z" fill="#D52B1E"/><path d="M10 2.6l.75 1.45 1.2-.45-.4 2.05 1.25-.65.3.8 1.05-.25-.55 1.55.55.4-2.15 1.35.2.85-1.85-.3V11h-.7V9.4l-1.85.3.2-.85L5.85 7.5l.55-.4-.55-1.55 1.05.25.3-.8 1.25.65-.4-2.05 1.2.45z" fill="#D52B1E"/></svg>EN</a></div>
+    </div>
     <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
@@ -288,7 +297,6 @@ dialog::backdrop{background:rgba(0,0,0,.78);backdrop-filter:blur(4px)}
       <a href="#projetos">Projetos</a>
       <a href="#servicos">Serviços</a>
       <a href="#contato">Contato</a>
-      <a class="lang" href="en/" hreflang="en" aria-label="English version">EN</a>
       <a class="btn btn-cu" href="#contato">Falar comigo</a>
     </nav>
   </div>
