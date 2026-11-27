@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Douglas Riguini · Data Analyst and Power BI Developer</title>
+<meta name="description" content="Power BI dashboards for finance, sales, logistics, HR, marketing, manufacturing and healthcare. Explore the interactive projects by Douglas Riguini.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_CA">
+<meta property="og:url" content="https://riguini.github.io/en/">
+<meta property="og:title" content="Douglas Riguini · Data Analyst and Power BI Developer">
+<meta property="og:description" content="Interactive Power BI dashboards for finance, logistics, marketing, HR, manufacturing and healthcare.">
+<meta property="og:image" content="https://riguini.github.io/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="pt-BR" href="https://riguini.github.io/">
+<link rel="alternate" hreflang="en" href="https://riguini.github.io/en/">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta name="theme-color" content="#1D1F22">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg0:#0A0A0A; --bg1:#1D1F22; --card:#141619; --card2:#191C20;
+  --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
+  --tx:#F2F2F2; --mu:#A9AFB6; --mu2:#7D848C;
+  --cu:#D9955F; --cu2:#E8AE7E; --cu-d:#A8642F; --ink:#1B1D1F;
+  --paper:#F7F5F2; --paper-tx:#22252A; --paper-mu:#5B6168;
+  --r:14px; --wrap:1160px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg0);color:var(--tx);font-family:'DM Sans',system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.band{padding:96px 0}
+.band.alt{background:var(--bg1)}
+.h2{font-size:clamp(26px,3vw,34px);font-weight:700;line-height:1.2;margin:0 0 12px;display:flex;align-items:center;gap:14px}
+.h2::before{content:"";width:4px;height:1.1em;background:var(--cu);border-radius:2px}
+.lead{color:var(--mu);max-width:640px;margin:0 0 48px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 20px;border-radius:10px;font:600 15px/1 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:transform .2s,background .2s,border-color .2s,color .2s}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-cu{background:var(--cu);color:var(--ink)}
+.btn-cu:hover{background:var(--cu2);transform:translateY(-1px)}
+.btn-ln{border-color:var(--line2);color:var(--tx);background:transparent}
+.btn-ln:hover{border-color:var(--cu);color:var(--cu)}
+.btn[disabled]{background:#2A2D31;color:#7D848C;cursor:not-allowed;transform:none}
+:focus-visible{outline:2px solid var(--cu);outline-offset:3px;border-radius:6px}
+
+/* header */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:50;height:68px;display:flex;align-items:center;transition:background .3s,border-color .3s;background:#141619;border-bottom:1px solid var(--line)}
+.hdr.solid{background:rgba(20,22,25,.92);backdrop-filter:blur(12px)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;width:100%}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;letter-spacing:.01em}
+.brand-mk{width:34px;height:34px;border-radius:9px;background:var(--cu);color:var(--ink);display:grid;place-items:center;font-size:14px;font-weight:700}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{text-decoration:none;color:var(--mu);font-size:15px;transition:color .2s}
+.nav a:hover{color:var(--tx)}
+.nav .btn{min-height:40px;padding:0 16px;font-size:14px;color:var(--ink)}
+.lang{font-weight:600;letter-spacing:.04em}
+.tag-pt{border-color:var(--cu)!important;color:var(--cu)!important}
+.menu-btn{display:none;background:none;border:1px solid var(--line2);color:var(--tx);border-radius:10px;width:44px;height:44px;cursor:pointer}
+
+/* hero */
+.hero{background:var(--bg1);padding-top:68px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:40px;padding-top:36px}
+.hero-tx{padding:0 0 36px}
+.hi{font-size:18px;color:var(--tx);margin:0 0 6px}
+.name{font-size:clamp(44px,6vw,72px);line-height:1.05;font-weight:700;color:var(--cu);margin:0 0 14px;letter-spacing:-.01em}
+.role{font-size:clamp(18px,2vw,22px);font-weight:600;margin:0 0 14px}
+.hero p.desc{color:var(--mu);max-width:560px;margin:0 0 30px;font-size:17px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero-ph{align-self:stretch;justify-self:center;position:relative;width:450px;margin-top:-36px;overflow:hidden}
+.hero-ph .circ{position:absolute;left:5px;top:50%;width:440px;height:440px;transform:translateY(-50%);border-radius:50%;background:#2E3236;overflow:hidden}
+.hero-ph img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+
+/* sobre */
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+.about p{color:#C9CDD2;margin:0 0 18px;font-size:17px}
+.about strong{color:var(--tx)}
+.tl{list-style:none;margin:0;padding:0;position:relative}
+.tl::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--cu),rgba(217,149,95,.15))}
+.tl li{position:relative;padding:0 0 26px 34px}
+.tl li::before{content:"";position:absolute;left:0;top:6px;width:16px;height:16px;border-radius:50%;background:var(--bg0);border:3px solid var(--cu)}
+.tl .yr{font-size:13px;font-weight:700;color:var(--cu);letter-spacing:.04em}
+.tl .tt{font-weight:600;margin:2px 0}
+.tl .ds{color:var(--mu);font-size:14px}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0 34px}
+.tools span{font-size:13px;font-weight:600;color:var(--cu);border:1px solid rgba(217,149,95,.4);border-radius:999px;padding:5px 12px}
+
+/* skills */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.sk{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px 22px 28px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.sk::after{content:"";position:absolute;inset:auto -40% -60% auto;width:220px;height:220px;border-radius:50%;background:radial-gradient(rgba(217,149,95,.16),transparent 65%);opacity:0;transition:opacity .4s}
+.sk:hover{border-color:rgba(217,149,95,.45);transform:translateY(-3px)}
+.sk:hover::after{opacity:1}
+.sk .ico{width:88px;height:72px;margin-bottom:22px}
+.sk h3{font-size:15px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 10px}
+.sk p{color:var(--mu);font-size:15px;margin:0}
+
+/* animated svg icons */
+.ico .s{stroke:var(--cu);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.ico .f{fill:var(--cu)}
+.ico .f2{fill:rgba(217,149,95,.28)}
+.ico .w{stroke:#E8EAEC;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ico .bar{transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(0)}
+.ico .draw{stroke-dasharray:var(--len,200);stroke-dashoffset:var(--len,200)}
+.ico .pop{transform-box:fill-box;transform-origin:center;transform:scale(0)}
+.ico .fade{opacity:0;transform:translateY(6px)}
+.ico .blink{opacity:0}
+.ico .spin{transform-box:fill-box;transform-origin:center}
+.in .bar{animation:grow .7s cubic-bezier(.2,.8,.2,1) forwards}
+.in .draw{animation:draw 1s ease forwards}
+.in .pop{animation:pop .45s cubic-bezier(.3,1.6,.5,1) forwards}
+.in .fade{animation:fade .5s ease forwards}
+.in .blink{animation:blink 1.6s ease forwards}
+.in .spin{animation:spin 1.2s ease}
+@keyframes grow{to{transform:scaleY(1)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{to{transform:scale(1)}}
+@keyframes fade{to{opacity:1;transform:none}}
+@keyframes blink{0%{opacity:0}30%{opacity:1}50%{opacity:.35}70%,100%{opacity:1}}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.d1{animation-delay:.12s!important}.d2{animation-delay:.24s!important}.d3{animation-delay:.36s!important}.d4{animation-delay:.48s!important}.d5{animation-delay:.6s!important}.d6{animation-delay:.72s!important}.d7{animation-delay:.84s!important}
+
+/* why power bi */
+.paper{background:var(--paper);color:var(--paper-tx)}
+.paper .h2{color:var(--paper-tx)}
+.paper .h2::before{background:var(--cu-d)}
+.pbi{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.pbi-logo{display:flex;align-items:center;gap:22px}
+.pbi-logo img{width:96px;height:auto}
+.pbi-logo span{font-size:40px;font-weight:700;color:#2B2F35;letter-spacing:-.01em}
+.pbi-tx{color:var(--paper-mu);margin:22px 0 0;font-size:17px;max-width:420px}
+.ben{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.bn{background:#fff;border:1px solid #E6E1DA;border-radius:var(--r);padding:22px;display:flex;gap:16px;align-items:flex-start}
+.bn .ico{width:52px;height:52px;flex:none}
+.bn .ico .s{stroke:var(--cu-d)}
+.bn .ico .f{fill:var(--cu-d)}
+.bn .ico .f2{fill:rgba(168,100,47,.18)}
+.bn h3{margin:0 0 4px;font-size:17px;color:var(--paper-tx)}
+.bn p{margin:0;color:var(--paper-mu);font-size:15px}
+
+/* projects */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 32px}
+.chip{min-height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--mu);font:500 14px 'DM Sans',sans-serif;cursor:pointer;transition:all .2s}
+.chip:hover{color:var(--tx);border-color:var(--mu2)}
+.chip[aria-pressed="true"]{background:var(--cu);border-color:var(--cu);color:var(--ink)}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:border-color .3s,transform .3s}
+.pc:hover{border-color:rgba(217,149,95,.4);transform:translateY(-3px)}
+.pc.hide{display:none}
+.cover{position:relative;aspect-ratio:16/9.6;background:#8D9AA8;padding:16px 16px 0;overflow:hidden}
+.cover::after{content:"";position:absolute;inset:auto 0 0 0;height:42%;background:var(--card)}
+.cover img,.cover .ph{position:relative;z-index:1;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:top;border-radius:8px;box-shadow:0 10px 28px rgba(0,0,0,.45);transition:transform .5s}
+.pc:hover .cover img{transform:scale(1.03)}
+.cover .ph{background:#22262B;display:grid;place-items:center;color:var(--mu);font-size:14px;text-align:center}
+.cover .ph svg{display:block;width:34px;height:34px;margin:0 auto 8px;stroke:var(--mu2)}
+.badge{position:absolute;z-index:2;top:26px;right:26px;background:var(--cu);color:var(--ink);font-size:11px;font-weight:700;letter-spacing:.08em;padding:5px 9px;border-radius:6px}
+.pb{padding:20px 22px 24px;display:flex;flex-direction:column;flex:1}
+.area{font-size:12px;font-weight:600;color:var(--mu);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.pt{font-size:19px;margin:0;font-weight:400;letter-spacing:.02em}
+.pt b{font-weight:700}
+.pn{color:var(--cu);font-weight:600;font-size:16px;margin:2px 0 14px}
+.pb p{color:#C2C7CC;font-size:14.5px;margin:0 0 14px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 18px}
+.tag{font-size:12px;color:var(--mu);border:1px solid var(--line2);border-radius:6px;padding:3px 8px}
+.pact{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.pact .btn{min-height:42px;padding:0 16px;font-size:14px}
+.pages{font-size:13px;color:var(--mu2);margin-left:auto}
+
+/* services + process */
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.svc .sv{flex-direction:column}
+.sv{border:1px solid rgba(217,149,95,.45);border-radius:var(--r);padding:24px;display:flex;gap:18px;align-items:flex-start;transition:background .3s}
+.sv:hover{background:rgba(217,149,95,.06)}
+.sv .ico{width:52px;height:52px;flex:none}
+.sv h3{margin:0 0 6px;font-size:15px;letter-spacing:.05em;text-transform:uppercase}
+.sv p{margin:0;color:var(--mu);font-size:15px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:56px;counter-reset:st}
+.st{position:relative;padding-top:52px}
+.st::before{counter-increment:st;content:"0" counter(st);position:absolute;top:0;left:0;font-size:32px;font-weight:700;color:var(--cu)}
+.st::after{content:"";position:absolute;top:22px;left:58px;right:-10px;height:1px;background:var(--line2)}
+.st:last-child::after{display:none}
+.st h3{margin:0 0 6px;font-size:17px}
+.st p{margin:0;color:var(--mu);font-size:15px}
+
+/* contact */
+.contact{background:linear-gradient(135deg,#1D1F22,#141619);border-top:1px solid var(--line)}
+.ct{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+.ct h2{font-size:clamp(30px,4vw,46px);line-height:1.12;margin:0 0 14px}
+.ct h2 em{font-style:normal;color:var(--cu)}
+.ct p{color:var(--mu);margin:0;font-size:17px}
+.cbox{display:flex;flex-direction:column;gap:12px}
+.mail{display:flex;gap:10px}
+.mail .btn-cu{flex:1;justify-content:center}
+.copy{min-width:46px;justify-content:center;padding:0 14px}
+.cbox .btn-ln{justify-content:center}
+.copied{font-size:13px;color:var(--cu);min-height:20px}
+.btn svg.li,.btn svg.wa{width:22px;height:22px}
+.btn-li:hover{border-color:#0A66C2;color:var(--tx)}
+.btn-wa:hover{border-color:#25D366;color:var(--tx)}
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:60;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.45);transition:transform .2s;opacity:0;pointer-events:none}
+.wa-float.show{opacity:1;pointer-events:auto}
+.wa-float:hover{transform:scale(1.07)}
+.wa-float svg{width:32px;height:32px}
+footer{padding:28px 0;color:var(--mu2);font-size:14px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* modal */
+dialog{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100%;height:100%;color:var(--tx)}
+dialog::backdrop{background:rgba(0,0,0,.78);backdrop-filter:blur(4px)}
+.mdl{width:min(1240px,96vw);max-height:94vh;margin:3vh auto;background:#111315;border:1px solid var(--line2);border-radius:16px;display:flex;flex-direction:column;overflow:hidden}
+.mh{display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid var(--line)}
+.mh h3{margin:0;font-size:18px;flex:1}
+.mh h3 small{display:block;font-size:13px;color:var(--cu);font-weight:600}
+.tabs{display:flex;gap:6px}
+.tab{min-height:38px;padding:0 14px;border-radius:8px;border:1px solid var(--line2);background:transparent;color:var(--mu);font:500 14px 'DM Sans';cursor:pointer}
+.tab[aria-selected="true"]{background:#24282D;color:var(--tx);border-color:#3A3F45}
+.x{width:42px;height:42px;border-radius:10px;border:1px solid var(--line2);background:transparent;color:var(--tx);cursor:pointer;font-size:20px}
+.mbody{flex:1;overflow:auto;padding:16px 20px 20px}
+.frame{position:relative;width:100%;aspect-ratio:16/9.4;background:#0B0C0D;border-radius:10px;overflow:hidden}
+.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.gal img{border-radius:8px;border:1px solid var(--line);cursor:zoom-in}
+.phone{margin:0 auto;width:min(360px,80vw);aspect-ratio:9/19.5;border:12px solid #050506;border-radius:42px;position:relative;overflow:hidden;background:#000;box-shadow:0 0 0 1px #2A2D31}
+.phone::before{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:90px;height:22px;background:#050506;border-radius:12px;z-index:2}
+.phone iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.mfoot{display:flex;gap:10px;justify-content:flex-end;padding:0 20px 18px}
+.zoom{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;place-items:center;z-index:100;cursor:zoom-out;padding:3vw}
+.zoom.on{display:grid}
+.zoom img{max-height:94vh;border-radius:8px}
+
+/* topo fixo enquanto o Sobre mim passa por baixo (só em telas grandes) */
+@media (min-width:1000px) and (min-height:820px){
+  .stick-wrap .hero{position:sticky;top:0;z-index:20;box-shadow:0 14px 30px -18px rgba(0,0,0,.9)}
+  .stick-wrap #sobre{position:relative;z-index:10;scroll-margin-top:var(--heroH,520px)}
+}
+/* reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.rv.vis{opacity:1;transform:none}
+
+@media (max-width:1000px){
+  .grid4{grid-template-columns:1fr 1fr}
+  .pgrid{grid-template-columns:1fr 1fr}
+  .svc{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr;row-gap:36px}
+  .st::after{display:none}
+  .pbi,.about,.ct{grid-template-columns:1fr;gap:36px}
+}
+@media (max-width:760px){
+  .band{padding:72px 0}
+  .nav{position:fixed;inset:68px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:rgba(10,10,10,.97);border-bottom:1px solid var(--line);padding:8px 24px 18px;display:none}
+  .nav.open{display:flex}
+  .nav a{padding:14px 0;border-bottom:1px solid var(--line)}
+  .nav .btn{margin-top:14px;justify-content:center}
+  .menu-btn{display:grid;place-items:center}
+  .hero .wrap{grid-template-columns:1fr;min-height:0;gap:0}
+  .hero-ph{order:-1;width:240px;height:240px;margin-top:28px;align-self:auto}
+  .hero-ph .circ{top:0;transform:none;width:240px;height:240px}
+  .hero-tx{padding:28px 0 56px}
+  .grid4,.pgrid,.ben,.steps,.svc{grid-template-columns:1fr}
+  .mdl{width:100vw;max-height:100vh;height:100vh;margin:0;border-radius:0}
+  .mh{flex-wrap:wrap}
+  .frame{aspect-ratio:auto;height:62vh}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+  .ico .bar{transform:none}.ico .draw{stroke-dashoffset:0}.ico .pop{transform:none}.ico .fade,.ico .blink{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="brand" href="#topo" aria-label="Douglas Riguini, home"><span class="brand-mk">DR</span><span>Douglas Riguini</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#sobre">About</a>
+      <a href="#projetos">Projects</a>
+      <a href="#servicos">Services</a>
+      <a href="#contato">Contact</a>
+      <a class="lang" href="../" hreflang="pt-BR" aria-label="Versão em português">PT</a>
+      <a class="btn btn-cu" href="#contato">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+
+<div class="stick-wrap">
+<section class="hero" aria-label="Introduction">
+  <div class="wrap">
+    <div class="hero-tx">
+      <p class="hi">Hi! My name is</p>
+      <h1 class="name">Douglas Riguini</h1>
+      <p class="role">Data Analyst and Power BI Developer</p>
+      <p class="desc">I build interactive, automated dashboards for sales, finance, logistics, HR and marketing, turning scattered data into clear decisions.</p>
+      <div class="cta">
+        <a class="btn btn-cu" href="#projetos">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
+          View projects
+        </a>
+        <a class="btn btn-ln" href="https://www.linkedin.com/in/douglas-riguini" target="_blank" rel="noopener">
+          <svg class="li" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#0A66C2"/><path fill="#fff" d="M7.1 9.6h2.3v7.5H7.1zM8.25 5.9a1.33 1.33 0 1 1 0 2.66 1.33 1.33 0 0 1 0-2.66zM10.9 9.6h2.2v1h.03c.31-.58 1.06-1.2 2.18-1.2 2.33 0 2.76 1.53 2.76 3.53v4.17h-2.3v-3.7c0-.88-.02-2.02-1.23-2.02-1.23 0-1.42.96-1.42 1.95v3.77h-2.3z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="hero-ph">
+      <div class="circ"><img src="../img/douglas.webp" alt="Photo of Douglas Riguini" width="720" height="720"></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="sobre">
+  <div class="wrap about">
+    <div class="rv">
+      <h2 class="h2">About me</h2>
+      <p style="margin-top:22px">I am a <strong>data analyst and Power BI developer</strong> based in Toronto. I have worked with Power BI since 2021 and have training in data science.</p>
+      <p>My work starts before the dashboard: understanding the business, organizing the data and defining the questions that need answers. Then come the data model, the DAX measures and a layout designed for the people who use the report every day.</p>
+      <p>Each portfolio project simulates a company and a real problem, from an IFRS 18 income statement to a marketing acquisition funnel, always with the same goal: <strong>drive decisions, not just charts</strong>.</p>
+    </div>
+    <div class="rv">
+      <ol class="tl" aria-label="Education">
+        <li><div class="yr">EDUCATION</div><div class="tt">Data science</div></li>
+        <li><div class="yr">EDUCATION</div><div class="tt">Data analysis</div></li>
+        <li><div class="yr">EDUCATION</div><div class="tt">Python for data analysis</div></li>
+        <li><div class="yr">2021</div><div class="tt">Complete Power BI: beginner to advanced</div></li>
+        <li><div class="yr">2021</div><div class="tt">Microsoft training</div><div class="ds">Azure Fundamentals (AZ-900), Azure AI Fundamentals (AI-900) and Microsoft 365 Fundamentals (MS-900).</div></li>
+        <li><div class="yr">TODAY</div><div class="tt">Data analyst and Power BI developer</div><div class="ds">Dashboards for finance, logistics, marketing, HR, mining, manufacturing and healthcare.</div></li>
+      </ol>
+      <div class="tools" aria-label="Tools">
+        <span>Power BI</span><span>DAX</span><span>Power Query</span><span>Dimensional modeling</span><span>SQL</span><span>Excel</span><span>Python</span>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<section class="band alt" aria-labelledby="hab">
+  <div class="wrap">
+    <h2 class="h2" id="hab">Core skills</h2>
+    <p class="lead">From raw data to the report leadership opens every Monday morning.</p>
+    <div class="grid4">
+      <article class="sk anim">
+        <svg class="ico" viewBox="0 0 88 72" aria-hidden="true">
+          <path class="s" d="M6 66h76" />
+          <rect class="f bar" x="14" y="40" width="12" height="26" rx="2"/>
+          <rect class="f bar d1" x="34" y="28" width="12" height="38" rx="2"/>
+          <rect class="f bar d2" x="54" y="16" width="12" height="50" rx="2"/>
+          <path class="w draw d3" style="--len:90" d="M12 34 L36 22 L52 26 L76 8"/>
+          <circle class="f pop d6" cx="76" cy="8" r="5"/>
+        </svg>
+        <h3>Data visualization and analysis</h3>
+        <p>Professional, interactive Power BI dashboards focused on the questions the business needs answered.</p>
+      </article>
+      <article class="sk anim">
+        <svg class="ico" viewBox="0 0 88 72" aria-hidden="true">
+          <rect class="s" x="4" y="4" width="80" height="64" rx="6"/>
+          <rect class="f fade" x="10" y="10" width="40" height="6" rx="2"/>
+          <rect class="f2 fade d1" x="10" y="22" width="20" height="14" rx="2"/>
+          <rect class="f2 fade d2" x="34" y="22" width="20" height="14" rx="2"/>
+          <rect class="f2 fade d3" x="58" y="22" width="20" height="14" rx="2"/>
+          <rect class="f2 fade d4" x="10" y="42" width="68" height="20" rx="2"/>
+          <path class="s draw d5" style="--len:80" d="M14 58 L28 50 L40 54 L56 46 L74 48"/>
+        </svg>
+        <h3>Dashboard design</h3>
+        <p>Custom layouts for each client, with brand identity, tailored backgrounds and simple navigation.</p>
+      </article>
+      <article class="sk anim">
+        <svg class="ico" viewBox="0 0 88 72" aria-hidden="true">
+          <path class="s draw d1" style="--len:30" d="M34 30 L20 18"/>
+          <path class="s draw d1" style="--len:30" d="M54 30 L68 18"/>
+          <path class="s draw d2" style="--len:30" d="M34 42 L20 54"/>
+          <path class="s draw d2" style="--len:30" d="M54 42 L68 54"/>
+          <rect class="f2 s" x="30" y="26" width="28" height="20" rx="3"/>
+          <text class="blink d5" x="44" y="40.5" text-anchor="middle" font-size="12" font-style="italic" font-weight="700" fill="#E8EAEC" font-family="Georgia,serif">fx</text>
+          <rect class="f pop d3" x="6" y="8" width="18" height="12" rx="2"/>
+          <rect class="f pop d3" x="64" y="8" width="18" height="12" rx="2"/>
+          <rect class="f pop d4" x="6" y="52" width="18" height="12" rx="2"/>
+          <rect class="f pop d4" x="64" y="52" width="18" height="12" rx="2"/>
+        </svg>
+        <h3>Data modeling and DAX</h3>
+        <p>Star schema modeling, advanced DAX measures, time intelligence and connections to spreadsheets, systems and SQL databases.</p>
+      </article>
+      <article class="sk anim">
+        <svg class="ico" viewBox="0 0 88 72" aria-hidden="true">
+          <rect class="f2 s" x="14" y="32" width="50" height="34" rx="5"/>
+          <path class="s" d="M30 32v-6a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v6"/>
+          <path class="s" d="M14 46h50"/>
+          <rect class="f" x="34" y="42" width="10" height="8" rx="2"/>
+          <path class="s draw d2" style="--len:70" d="M50 24 L60 14 L66 20 L80 6"/>
+          <path class="s draw d5" style="--len:20" d="M72 6 H80 V14"/>
+        </svg>
+        <h3>Business sense</h3>
+        <p>Hands-on experience in manufacturing, healthcare and financial markets: I understand the process before building the metric.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band paper" aria-labelledby="pbi">
+  <div class="wrap pbi">
+    <div class="rv">
+      <div class="pbi-logo"><img src="../img/powerbi.png" alt="Power BI icon" width="196" height="279"><span>Power BI</span></div>
+      <h2 class="h2" id="pbi" style="margin-top:30px">Why Power BI?</h2>
+      <p class="pbi-tx">Microsoft's analytics platform, used by companies of every size to replace manual reports with dashboards that refresh on their own.</p>
+    </div>
+    <div class="ben">
+      <article class="bn anim">
+        <svg class="ico" viewBox="0 0 52 52" aria-hidden="true">
+          <rect class="f2 s pop" x="2" y="4" width="14" height="10" rx="2"/>
+          <rect class="f2 s pop d1" x="2" y="21" width="14" height="10" rx="2"/>
+          <rect class="f2 s pop d2" x="2" y="38" width="14" height="10" rx="2"/>
+          <path class="s draw d3" style="--len:40" d="M16 9 C26 9 26 26 34 26 M16 26 H34 M16 43 C26 43 26 26 34 26"/>
+          <rect class="f pop d5" x="34" y="17" width="16" height="18" rx="3"/>
+        </svg>
+        <div><h3>Everything in one place</h3><p>Spreadsheets, systems and databases brought together in a single report.</p></div>
+      </article>
+      <article class="bn anim">
+        <svg class="ico" viewBox="0 0 52 52" aria-hidden="true">
+          <g class="spin d1"><path class="s" d="M42 18 A17 17 0 0 0 11 15"/><path class="s" d="M10 34 A17 17 0 0 0 41 37"/><path class="s" d="M11 6 V15 H20"/><path class="s" d="M41 46 V37 H32"/></g>
+          <rect class="f bar d3" x="21" y="26" width="4" height="8" rx="1"/>
+          <rect class="f bar d4" x="27" y="21" width="4" height="13" rx="1"/>
+        </svg>
+        <div><h3>Automatic refresh</h3><p>No more building reports by hand every week: the numbers update themselves.</p></div>
+      </article>
+      <article class="bn anim">
+        <svg class="ico" viewBox="0 0 52 52" aria-hidden="true">
+          <rect class="s" x="14" y="2" width="24" height="48" rx="5"/>
+          <path class="s" d="M23 44h6"/>
+          <rect class="f bar d1" x="19" y="26" width="4" height="12" rx="1"/>
+          <rect class="f bar d2" x="24" y="20" width="4" height="18" rx="1"/>
+          <rect class="f bar d3" x="29" y="14" width="4" height="24" rx="1"/>
+        </svg>
+        <div><h3>On your phone</h3><p>Your company's KPIs wherever you are, on desktop or mobile.</p></div>
+      </article>
+      <article class="bn anim">
+        <svg class="ico" viewBox="0 0 52 52" aria-hidden="true">
+          <circle class="s" cx="24" cy="28" r="20"/>
+          <circle class="f2 s" cx="24" cy="28" r="12"/>
+          <circle class="f pop d2" cx="24" cy="28" r="4"/>
+          <path class="s draw d4" style="--len:40" d="M24 28 L46 6"/>
+          <path class="s draw d6" style="--len:16" d="M40 6 H46 V12"/>
+        </svg>
+        <div><h3>Decisions backed by numbers</h3><p>See where the business makes and loses money, without guesswork.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="projetos" aria-labelledby="proj">
+  <div class="wrap">
+    <h2 class="h2" id="proj">Projects</h2>
+    <p class="lead">Fictional companies, simulated data and real business problems. Click "View details" to use each dashboard. Reports marked "In Portuguese" are being translated.</p>
+    <div class="chips" id="chips" role="group" aria-label="Filter by area"></div>
+    <div class="pgrid" id="pgrid"></div>
+  </div>
+</section>
+
+<section class="band alt" id="servicos" aria-labelledby="serv">
+  <div class="wrap">
+    <h2 class="h2" id="serv">How I can help</h2>
+    <p class="lead">From your first dashboard to maintaining the ones you already have.</p>
+    <div class="svc">
+      <article class="sv anim">
+        <svg class="ico" viewBox="0 0 52 52" aria-hidden="true">
+          <circle class="f2 pop" cx="12" cy="36" r="4"/><circle class="f2 pop d1" cx="20" cy="26" r="4"/><circle class="f2 pop d2" cx="30" cy="30" r="4"/><circle class="f pop d3" cx="38" cy="14" r="4"/>
+          <path class="s draw d4" style="--len:50" d="M8 42 L44 10"/>
+          <circle class="s" cx="34" cy="34" r="9"/><path class="s" d="M41 41l7 7"/>
+        </svg>
+        <div><h3>Data analysis</h3><p>I dig into your company's data to answer specific questions, such as why sales dropped, which customers bring the best margin or where the losses are, and deliver the findings with charts and recommendations.</p></div>
+      </article>
+      <article class="sv anim">
+        <svg class="ico" viewBox="0 0 52 52" aria-hidden="true">
+          <rect class="s" x="3" y="5" width="46" height="32" rx="4"/>
+          <path class="s" d="M20 47h12M26 37v10"/>
+          <rect class="f bar" x="12" y="22" width="6" height="9" rx="1"/>
+          <rect class="f bar d1" x="22" y="16" width="6" height="15" rx="1"/>
+          <rect class="f bar d2" x="32" y="11" width="6" height="20" rx="1"/>
+        </svg>
+        <div><h3>Dashboard development</h3><p>Custom Power BI dashboards, from requirements to delivery.</p></div>
+      </article>
+      <article class="sv anim">
+        <svg class="ico" viewBox="0 0 52 52" aria-hidden="true">
+          <path class="f fade" d="M26 6 L46 16 L26 26 L6 16 Z"/>
+          <path class="s fade d1" d="M6 26 L26 36 L46 26"/>
+          <path class="s fade d2" d="M6 36 L26 46 L46 36"/>
+        </svg>
+        <div><h3>KPIs for your industry</h3><p>Sales, finance, logistics, HR and marketing, plus in-depth knowledge of healthcare and manufacturing.</p></div>
+      </article>
+      <article class="sv anim">
+        <svg class="ico" viewBox="0 0 52 52" aria-hidden="true">
+          <g class="spin"><circle class="f2 s" cx="26" cy="26" r="9"/><path class="s" d="M26 6v6M26 40v6M6 26h6M40 26h6M12 12l4 4M36 36l4 4M12 40l4-4M36 16l4-4"/></g>
+          <circle class="f" cx="26" cy="26" r="3"/>
+        </svg>
+        <div><h3>Maintenance and automation</h3><p>Improving existing reports, connecting databases and setting up automatic refresh.</p></div>
+      </article>
+    </div>
+    <div class="steps" aria-label="How I work">
+      <div class="st rv"><h3>Discovery</h3><p>I learn your business and the questions the dashboard must answer.</p></div>
+      <div class="st rv"><h3>Data and model</h3><p>I organize the sources and build the data model with the right measures.</p></div>
+      <div class="st rv"><h3>Build</h3><p>I develop the dashboard and refine it with you over review rounds.</p></div>
+      <div class="st rv"><h3>Delivery</h3><p>Publishing, a walkthrough on how to use it and support for the first adjustments.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band contact" id="contato" aria-labelledby="cont">
+  <div class="wrap ct">
+    <div class="rv">
+      <h2 id="cont">Let's talk about <em>your company's data</em></h2>
+      <p>Tell me what you need to track. I will reply with a proposal for how a dashboard can help.</p>
+    </div>
+    <div class="cbox rv">
+      <div class="mail">
+        <a class="btn btn-cu" href="mailto:douglas.riguini@gmail.com?subject=Portfolio%20inquiry">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+          douglas.riguini@gmail.com
+        </a>
+        <button class="btn btn-ln copy" id="copy" type="button" aria-label="Copy email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+      </div>
+      <a class="btn btn-ln btn-wa" href="https://wa.me/message/DFAFH4EY7BPUB1" target="_blank" rel="noopener">
+        <svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/><path fill="#fff" d="M9.1 7.3c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.9 4.5 4 2.2.9 2.7.7 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.3-1.7-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.6-1.2-1.4-1.3-1.7-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4l-.8-1.9z"/></svg>
+        WhatsApp
+      </a>
+      <a class="btn btn-ln btn-li" href="https://www.linkedin.com/in/douglas-riguini" target="_blank" rel="noopener">
+        <svg class="li" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#0A66C2"/><path fill="#fff" d="M7.1 9.6h2.3v7.5H7.1zM8.25 5.9a1.33 1.33 0 1 1 0 2.66 1.33 1.33 0 0 1 0-2.66zM10.9 9.6h2.2v1h.03c.31-.58 1.06-1.2 2.18-1.2 2.33 0 2.76 1.53 2.76 3.53v4.17h-2.3v-3.7c0-.88-.02-2.02-1.23-2.02-1.23 0-1.42.96-1.42 1.95v3.77h-2.3z"/></svg>
+        linkedin.com/in/douglas-riguini
+      </a>
+      <div class="copied" id="copied" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Douglas Riguini</span><span>All companies and data in the projects are fictional.</span></div>
+</footer>
+
+<a class="wa-float" id="waFloat" href="https://wa.me/message/DFAFH4EY7BPUB1" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 1 1-4.2 15.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8z"/><path fill="#fff" d="M9.1 7.3c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.9 4.5 4 2.2.9 2.7.7 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.3-1.7-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.6-1.2-1.4-1.3-1.7-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4l-.8-1.9z"/></svg></a>
+<dialog id="dlg" aria-labelledby="dlgTitle">
+  <div class="mdl">
+    <div class="mh">
+      <h3 id="dlgTitle"></h3>
+      <div class="tabs" role="tablist" id="tabs"></div>
+      <button class="x" id="dlgClose" type="button" aria-label="Close">×</button>
+    </div>
+    <div class="mbody" id="dlgBody"></div>
+    <div class="mfoot" id="dlgFoot"></div>
+  </div>
+</dialog>
+<div class="zoom" id="zoom" role="dialog" aria-label="Enlarged image"><img alt="" id="zoomImg"></div>
+
+<script>
+const PBI = r => 'https://app.powerbi.com/view?r=' + r + '&language=en-US&formatLocale=en-US';
+const PROJETOS = [
+  {id:'steelstep', area:'Manufacturing', titulo:'MANUFACTURING', nome:'SteelStep Safety Footwear', paginas:5,
+   desc:'Safety-footwear factory with the lasting line simulated rack by rack: bottleneck, OEE, weekly target with Friday afternoons off, rework by size, orders (OTIF) and leather yield.',
+   tags:['Rack-level simulation','Bottleneck and OEE','Interleaving scenario','Filter drawer'],
+   link:PBI('eyJrIjoiMjZiNzYwOTktMWUwNS00Mjg0LWIyNzItNzBjYjc3ZTYyNTljIiwidCI6IjE4MzAxMzA2LTlkYmMtNDY3Yi05ZDNiLWMwNTc5ZmQ1YjM0MCJ9'), mobile:null},
+  {id:'techontronic', area:'Marketing', titulo:'MARKETING', nome:'Tech on Tronic', paginas:3, pt:true,
+   desc:'Lead-generation funnel for an IT school, from ad impression to enrollment: leads, CPL, CAC, ROAS by channel, organic content and paid campaigns.',
+   tags:['Funnel','CAC and ROAS','HTML and SVG in Power BI'],
+   link:PBI('eyJrIjoiY2YzMjEyYjEtMzFkZS00NWJmLWFiYmQtYjY0YTljMjkxNTExIiwidCI6IjE4MzAxMzA2LTlkYmMtNDY3Yi05ZDNiLWMwNTc5ZmQ1YjM0MCJ9'), mobile:null},
+  {id:'giro', area:'Inventory', titulo:'INVENTORY', nome:'Giro Atacado', paginas:4, pt:true,
+   desc:'Food and beverage wholesaler with 2 distribution centers and data in SQL Server: ABC analysis, coverage and turnover, stockouts with lost revenue, expiry losses and supplier OTIF. Product photo tooltip.',
+   tags:['SQL Server','ABC analysis','Stockouts and losses'],
+   link:PBI('eyJrIjoiNzFjZDUyMzctMjcxZC00NDJlLTg1ZTEtMWI5YjMwZTU2ODBkIiwidCI6IjE4MzAxMzA2LTlkYmMtNDY3Yi05ZDNiLWMwNTc5ZmQ1YjM0MCJ9'), mobile:null},
+  {id:'medvision-imagem', area:'Healthcare', titulo:'HEALTHCARE', nome:'MedVision Imaging', paginas:5, pt:true,
+   desc:'Management of a diagnostic imaging clinic network: revenue by modality and payer, exams, average ticket, equipment utilization, no-shows and lost revenue.',
+   tags:['Payers and denials','Utilization','Lost revenue'],
+   link:PBI('eyJrIjoiNjYwY2YwNTQtOGQzOS00NDM5LTgxNGQtZjQ1MzU4ZGU2ODM2IiwidCI6IjE4MzAxMzA2LTlkYmMtNDY3Yi05ZDNiLWMwNTc5ZmQ1YjM0MCJ9'), mobile:null},
+  {id:'newton', area:'Logistics', titulo:'LOGISTICS', nome:'NewTon Freight', paginas:3, pt:true,
+   desc:'Operations of a trucking company with three branches: revenue, trips, margin, OTD and OTIF, cost per kg, incident costs and a what-if simulator for opening a new branch.',
+   tags:['OTD and OTIF','What-if simulator','DAX'],
+   link:PBI('eyJrIjoiZmVkYTk2NTgtNTNlZi00MmY0LWIyMGQtOTMyMTA0MmYzZjc4IiwidCI6IjE4MzAxMzA2LTlkYmMtNDY3Yi05ZDNiLWMwNTc5ZmQ1YjM0MCJ9'), mobile:null},
+  {id:'mixmetrix', area:'Finance', titulo:'FINANCE', nome:'MixMetrix Income Statement', paginas:3, pt:true,
+   desc:'Income statement of an electronics retailer under the new IFRS 18 standard: budget vs actual, expenses by nature, operating profit and margin analysis by product.',
+   tags:['IFRS 18','Budget vs actual','Margin quadrants'],
+   link:PBI('eyJrIjoiNDI3OTljMTMtYzkwMi00MmRjLWE2ODktYjdmODFkYWZlNTFmIiwidCI6IjE4MzAxMzA2LTlkYmMtNDY3Yi05ZDNiLWMwNTc5ZmQ1YjM0MCJ9'), mobile:null},
+  {id:'medvision-rh', area:'HR', titulo:'HR', nome:'MedVision HR', paginas:5, pt:true,
+   desc:'People analytics for a clinic network: headcount, payroll cost by site, absenteeism, overtime, turnover and staff radiation exposure tracking.',
+   tags:['People analytics','Linked to operations','DAX'],
+   link:PBI('eyJrIjoiYmI4YmY3Y2UtMjYzZC00OGM2LTkzNDEtYTM0ZTAyZjc0NzlkIiwidCI6IjE4MzAxMzA2LTlkYmMtNDY3Yi05ZDNiLWMwNTc5ZmQ1YjM0MCJ9'), mobile:null},
+  {id:'aurum', area:'Mining', titulo:'MINING', nome:'Aurum Mining', paginas:5, pt:true,
+   desc:'Gold production by mine against plan, all-in sustaining cost per ounce (AISC), cost breakdown, margin and results by mine.',
+   tags:['AISC','Plan vs actual','Simulator'],
+   link:PBI('eyJrIjoiZjA2YzM0ZjItZTFlZi00OTI2LWIzNzgtOWY0YzM4YmJlNmRiIiwidCI6IjE4MzAxMzA2LTlkYmMtNDY3Yi05ZDNiLWMwNTc5ZmQ1YjM0MCJ9'), mobile:null},
+  {id:'caixa-alta', area:'Sales', titulo:'SALES', nome:'Caixa Alta Distribution', paginas:0, breve:true,
+   desc:'Sales and cash flow for a distributor: target vs actual by sales rep, customers, delinquency and cash projection, with data in a cloud SQL database refreshed daily.',
+   tags:['Cloud SQL','Automatic refresh','Cash flow']}
+];
+
+const $ = s => document.querySelector(s);
+const ICON = {
+  lupa:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg>',
+  cel:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>',
+  ext:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>',
+  ph:'<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>'
+};
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// cards
+const grid = $('#pgrid');
+grid.innerHTML = PROJETOS.map(p => `
+<article class="pc rv" data-area="${esc(p.area)}">
+  <div class="cover">
+    ${p.breve ? `<div class="ph"><div>${ICON.ph}${esc(p.nome)}</div></div><span class="badge">COMING SOON</span>`
+              : `<img src="../img/capas/${p.id}-1.webp" alt="Home page of the ${esc(p.nome)} dashboard" loading="lazy" width="1920" height="1080">`}
+  </div>
+  <div class="pb">
+    <div class="area">${esc(p.area)}</div>
+    <h3 class="pt"><b>${esc(p.titulo)}</b> DASHBOARD</h3>
+    <div class="pn">${esc(p.nome)}</div>
+    <p>${esc(p.desc)}</p>
+    <div class="tags">${p.pt ? '<span class="tag tag-pt">In Portuguese</span>' : ''}${p.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
+    <div class="pact">
+      ${p.breve ? `<button class="btn" disabled>Coming soon</button>`
+                : `<button class="btn btn-cu" data-open="${p.id}">${ICON.lupa}View details</button>
+                   ${p.mobile ? `<button class="btn btn-ln" data-mobile="${p.id}">${ICON.cel}Mobile version</button>` : ''}
+                   <span class="pages">${p.paginas} pages</span>`}
+    </div>
+  </div>
+</article>`).join('');
+
+// chips
+const areas = ['All', ...new Set(PROJETOS.map(p => p.area))];
+$('#chips').innerHTML = areas.map((a,i) => `<button class="chip" type="button" aria-pressed="${i===0}" data-area="${esc(a)}">${esc(a)}</button>`).join('');
+$('#chips').addEventListener('click', e => {
+  const b = e.target.closest('.chip'); if (!b) return;
+  document.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', c === b));
+  const a = b.dataset.area;
+  document.querySelectorAll('.pc').forEach(c => c.classList.toggle('hide', a !== 'All' && c.dataset.area !== a));
+});
+
+// modal
+const dlg = $('#dlg'), body = $('#dlgBody'), tabs = $('#tabs'), foot = $('#dlgFoot');
+function openProj(id, modo) {
+  const p = PROJETOS.find(x => x.id === id); if (!p) return;
+  $('#dlgTitle').innerHTML = `<small>${esc(p.nome)}${p.pt ? ' · report in Portuguese' : ''}</small>${esc(p.titulo.charAt(0) + p.titulo.slice(1).toLowerCase())} dashboard`;
+  const views = modo === 'mobile' ? [['mobile','Mobile version']] : [['live','Interactive'],['gal',`Pages (${p.paginas})`]];
+  tabs.innerHTML = views.map((v,i) => `<button class="tab" role="tab" type="button" aria-selected="${i===0}" data-v="${v[0]}">${v[1]}</button>`).join('');
+  const show = v => {
+    tabs.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-selected', t.dataset.v === v));
+    if (v === 'live') body.innerHTML = `<div class="frame"><iframe src="${p.link}" title="Dashboard ${esc(p.nome)}" allowfullscreen loading="lazy"></iframe></div>`;
+    if (v === 'mobile') body.innerHTML = `<div class="phone"><iframe src="${p.mobile}" title="Mobile version of ${esc(p.nome)}" loading="lazy"></iframe></div>`;
+    if (v === 'gal') body.innerHTML = `<div class="gal">${Array.from({length:p.paginas},(_,i)=>`<img src="../img/capas/${p.id}-${i+1}.webp" alt="Page ${i+1} of ${esc(p.nome)}" loading="lazy">`).join('')}</div>`;
+  };
+  tabs.onclick = e => { const t = e.target.closest('.tab'); if (t) show(t.dataset.v); };
+  show(views[0][0]);
+  const url = modo === 'mobile' ? p.mobile : p.link;
+  foot.innerHTML = `<a class="btn btn-ln" href="${url}" target="_blank" rel="noopener">${ICON.ext}Open full screen</a>`;
+  dlg.showModal(); document.body.style.overflow = 'hidden';
+}
+grid.addEventListener('click', e => {
+  const o = e.target.closest('[data-open]'), m = e.target.closest('[data-mobile]');
+  if (o) openProj(o.dataset.open); if (m) openProj(m.dataset.mobile, 'mobile');
+});
+const closeDlg = () => { dlg.close(); };
+$('#dlgClose').onclick = closeDlg;
+dlg.addEventListener('click', e => { if (e.target === dlg) closeDlg(); });
+dlg.addEventListener('close', () => { body.innerHTML = ''; document.body.style.overflow = ''; });
+body.addEventListener('click', e => { const i = e.target.closest('.gal img'); if (i) { $('#zoomImg').src = i.src; $('#zoomImg').alt = i.alt; $('#zoom').classList.add('on'); } });
+$('#zoom').onclick = () => $('#zoom').classList.remove('on');
+
+// copy e-mail
+$('#copy').onclick = async () => {
+  try { await navigator.clipboard.writeText('douglas.riguini@gmail.com'); $('#copied').textContent = 'Email copied.'; }
+  catch { $('#copied').textContent = 'douglas.riguini@gmail.com'; }
+  setTimeout(() => $('#copied').textContent = '', 2600);
+};
+
+// header + menu
+const hdr = $('#hdr');
+const waF = $('#waFloat'), contato = $('#contato');
+const onScroll = () => {
+  hdr.classList.toggle('solid', scrollY > 20);
+  const r = contato.getBoundingClientRect();
+  waF.classList.toggle('show', scrollY > 500 && r.top > innerHeight * .6);
+};
+addEventListener('scroll', onScroll, {passive:true}); onScroll();
+const heroEl = document.querySelector('.hero');
+const setHeroH = () => document.documentElement.style.setProperty('--heroH', heroEl.offsetHeight + 'px');
+addEventListener('resize', setHeroH); setHeroH();
+const nav = $('#nav'), mb = $('#menuBtn');
+mb.onclick = () => { const o = nav.classList.toggle('open'); mb.setAttribute('aria-expanded', o); };
+nav.addEventListener('click', e => { if (e.target.closest('a')) { nav.classList.remove('open'); mb.setAttribute('aria-expanded', false); } });
+
+// reveal + icon animations
+const io = new IntersectionObserver(es => es.forEach(en => {
+  if (!en.isIntersecting) return;
+  en.target.classList.add(en.target.classList.contains('anim') ? 'in' : 'vis');
+  io.unobserve(en.target);
+}), {threshold:.25});
+document.querySelectorAll('.rv,.anim').forEach(el => io.observe(el));
+document.querySelectorAll('.anim').forEach(el => el.addEventListener('mouseenter', () => {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  el.classList.remove('in'); void el.offsetWidth; el.classList.add('in');
+}));
+</script>
+</body>
+</html>
