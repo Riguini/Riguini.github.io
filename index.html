@@ -598,9 +598,10 @@ const PROJETOS = [
   {id:'caixa-alta', area:'Comercial', titulo:'COMERCIAL', nome:'Caixa Alta Distribuidora', paginas:0, breve:true,
    desc:'Vendas e fluxo de caixa de uma distribuidora: meta × realizado por vendedor, clientes, inadimplência e projeção de caixa, com dados em banco SQL na nuvem e atualização diária.',
    tags:['SQL na nuvem','Atualização automática','Fluxo de caixa']},
-  {id:'giro', area:'Estoque', titulo:'ESTOQUE', nome:'Giro Atacado', paginas:0, breve:true,
-   desc:'Estoque e compras de um atacado: cobertura, giro, ruptura, curva ABC, lead time e desempenho de fornecedores.',
-   tags:['Curva ABC','Giro e cobertura','Fornecedores']}
+  {id:'giro', area:'Estoque', titulo:'ESTOQUE', nome:'Giro Atacado', paginas:4,
+   desc:'Atacadista de alimentos e bebidas com 2 CDs e dados em SQL Server: curva ABC, cobertura e giro, ruptura com receita perdida, perdas por vencimento e OTIF de fornecedores. Tooltip com foto do produto.',
+   tags:['SQL Server','Curva ABC','Ruptura e perdas','Tooltip com imagem'],
+   link:PBI('eyJrIjoiNzFjZDUyMzctMjcxZC00NDJlLTg1ZTEtMWI5YjMwZTU2ODBkIiwidCI6IjE4MzAxMzA2LTlkYmMtNDY3Yi05ZDNiLWMwNTc5ZmQ1YjM0MCJ9'), mobile:null}
 ];
 
 const $ = s => document.querySelector(s);
